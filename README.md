@@ -8,6 +8,23 @@ Leverage GCP Services and Open Source tools to convert Audo to text and then ext
 
 ![Basic Dataflow](./artifacts/designs/podcast_topic_extract_simple_data_flow.svg)
 
+## Podcast Download
+
+### Podcast Search
+
+- [podsearch](https://pypi.org/project/podsearch/)
+- [podsearch github](https://github.com/nalgeon/podsearch-py)
+- [itune search api](https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/iTuneSearchAPI/index.html)
+  Media Type = 'podcast'
+  Available Entities = [podcastAuthor, podcast]
+  Potential Attributes = [titleTerm, languageTerm, authorTerm, genreIndex, artistTerm, ratingIndex, keywordsTerm, descriptionTerm]
+- Note: Minor Surgery to add 'releaseDate' to podcast date
+
+### Podcast Download
+
+- [getpodcast](https://pypi.org/project/getpodcast/)
+- [podcast-downloader](https://github.com/dplocki/podcast-downloader)
+
 ## Model Development
 
 - Evaluate Transfer Learning
