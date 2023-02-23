@@ -1,0 +1,10 @@
+{
+  "if_directory_empty": "download_from_7_days",
+  "podcasts": [
+    {
+      "name": "Talk Python",
+      "rss_link": "https://talkpython.fm/episodes/rss",
+      "path": ".\\podcasts\\SGTTU"
+    }
+  ]
+}

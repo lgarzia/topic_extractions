@@ -8,8 +8,6 @@ Leverage GCP Services and Open Source tools to convert Audo to text and then ext
 
 ![Basic Dataflow](./artifacts/designs/podcast_topic_extract_simple_data_flow.svg)
 
-## Podcast Download
-
 ### Podcast Search
 
 - [podsearch](https://pypi.org/project/podsearch/)
@@ -23,7 +21,9 @@ Leverage GCP Services and Open Source tools to convert Audo to text and then ext
 ### Podcast Download
 
 - [getpodcast](https://pypi.org/project/getpodcast/)
-- [podcast-downloader](https://github.com/dplocki/podcast-downloader)
+- [pyPodcastParser](https://pypi.org/project/pyPodcastParser/)
+- [podcast-downloader](https://pypi.org/project/podcast-downloader/)
+- [feedparser](https://pypi.org/project/feedparser/)
 
 ## Model Development
 
