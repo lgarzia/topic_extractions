@@ -1,0 +1,69 @@
+{
+  "title": "Talk Python To Me",
+  "title_detail": {
+    "type": "text/plain",
+    "language": null,
+    "base": "https://talkpython.fm/episodes/rss",
+    "value": "Talk Python To Me"
+  },
+  "subtitle": "Python conversations for passionate developers",
+  "subtitle_detail": {
+    "type": "text/plain",
+    "language": null,
+    "base": "https://talkpython.fm/episodes/rss",
+    "value": "Python conversations for passionate developers"
+  },
+  "links": [
+    {
+      "rel": "alternate",
+      "type": "text/html",
+      "href": "https://talkpython.fm/"
+    },
+    {
+      "href": "https://talkpython.fm/episodes/rss",
+      "rel": "self",
+      "type": "application/rss+xml"
+    }
+  ],
+  "link": "https://talkpython.fm/",
+  "language": "en-us",
+  "rights": "Copyright 2015-2023",
+  "rights_detail": {
+    "type": "text/plain",
+    "language": null,
+    "base": "https://talkpython.fm/episodes/rss",
+    "value": "Copyright 2015-2023"
+  },
+  "updated": "Mon, 20 Feb 2023 00:00:00 -0800",
+  "updated_parsed": [2023, 2, 20, 8, 0, 0, 0, 51, 0],
+  "published": "Mon, 20 Feb 2023 00:00:00 -0800",
+  "published_parsed": [2023, 2, 20, 8, 0, 0, 0, 51, 0],
+  "docs": "https://talkpython.fm",
+  "publisher": "mikeckennedy@gmail.com (Michael Kennedy)",
+  "publisher_detail": {
+    "name": "Michael Kennedy",
+    "email": "mikeckennedy@gmail.com"
+  },
+  "ttl": "60",
+  "authors": [{ "name": "Michael Kennedy", "email": "mikeckennedy@gmail.com" }],
+  "author": "Michael Kennedy",
+  "author_detail": {
+    "name": "Michael Kennedy",
+    "email": "mikeckennedy@gmail.com"
+  },
+  "summary": "Talk Python to Me is a weekly podcast hosted by developer and entrepreneur Michael Kennedy. We dive deep into the popular packages and software developers, data scientists, and incredible hobbyists doing amazing things with Python. If you're new to Python, you'll quickly learn the ins and outs of the community by hearing from the leaders. And if you've been Pythoning for years, you'll learn about your favorite packages and the hot new ones coming out of open source.",
+  "summary_detail": {
+    "type": "text/plain",
+    "language": null,
+    "base": "https://talkpython.fm/episodes/rss",
+    "value": "Talk Python to Me is a weekly podcast hosted by developer and entrepreneur Michael Kennedy. We dive deep into the popular packages and software developers, data scientists, and incredible hobbyists doing amazing things with Python. If you're new to Python, you'll quickly learn the ins and outs of the community by hearing from the leaders. And if you've been Pythoning for years, you'll learn about your favorite packages and the hot new ones coming out of open source."
+  },
+  "itunes_explicit": null,
+  "image": {
+    "href": "https://talkpython.fm/static/img/podcast-theme-img_1400_v3.png"
+  },
+  "tags": [
+    { "term": "Technology", "scheme": "http://www.itunes.com/", "label": null }
+  ],
+  "itunes_type": "episodic"
+}

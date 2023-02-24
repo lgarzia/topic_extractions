@@ -24,7 +24,7 @@ response # dict
 response.keys() # dict_keys(['resultCount', 'results'])
 
 # returns list
-r = response['results'][0]
+r = response['results'][1]
 # %%
 # dict_keys(['wrapperType', 'kind', 'collectionId', 'trackId', 'artistName', 'collectionName', 'trackName', 'collectionCensoredName', 'trackCensoredName', 'collectionViewUrl', 'feedUrl', 'trackViewUrl', 'artworkUrl30', 'artworkUrl60', 'artworkUrl100', 'collectionPrice', 'trackPrice', 'collectionHdPrice', 'releaseDate', 'collectionExplicitness', 'trackExplicitness', 'trackCount', 'trackTimeMillis', 'country', 'currency', 'primaryGenreName', 'contentAdvisoryRating', 'artworkUrl600', 'genreIds', 'genres'])
 # %%

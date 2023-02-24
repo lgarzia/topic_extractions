@@ -24,6 +24,12 @@ Leverage GCP Services and Open Source tools to convert Audo to text and then ext
 - [pyPodcastParser](https://pypi.org/project/pyPodcastParser/)
 - [podcast-downloader](https://pypi.org/project/podcast-downloader/)
 - [feedparser](https://pypi.org/project/feedparser/)
+- [mutagen](https://mutagen.readthedocs.io/en/latest/index.html)
+
+https://en.wikipedia.org/wiki/RSS_enclosure
+length is size in bytes
+
+### MP3 Audio to Text
 
 ## Model Development
 

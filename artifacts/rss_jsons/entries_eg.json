@@ -1,0 +1,103 @@
+{
+  "title": "#404: Clean Code in Python",
+  "title_detail": {
+    "type": "text/plain",
+    "language": null,
+    "base": "https://talkpython.fm/episodes/rss",
+    "value": "#404: Clean Code in Python"
+  },
+  "links": [
+    {
+      "rel": "alternate",
+      "type": "text/html",
+      "href": "https://talkpython.fm/episodes/show/404/clean-code-in-python"
+    },
+    {
+      "length": "61087702",
+      "type": "audio/mpeg",
+      "href": "https://talkpython.fm/episodes/download/404/clean-code-in-python.mp3",
+      "rel": "enclosure"
+    }
+  ],
+  "link": "https://talkpython.fm/episodes/show/404/clean-code-in-python",
+  "id": "249407a1-55de-48d5-b331-4c03160f66bc",
+  "guidislink": false,
+  "tags": [
+    { "term": "Technology", "scheme": null, "label": null },
+    { "term": "python", "scheme": "http://www.itunes.com/", "label": null },
+    { "term": "pycharm", "scheme": "http://www.itunes.com/", "label": null },
+    { "term": "python3", "scheme": "http://www.itunes.com/", "label": null },
+    { "term": "python2", "scheme": "http://www.itunes.com/", "label": null },
+    { "term": "software", "scheme": "http://www.itunes.com/", "label": null },
+    {
+      "term": "programming",
+      "scheme": "http://www.itunes.com/",
+      "label": null
+    },
+    { "term": "web", "scheme": "http://www.itunes.com/", "label": null },
+    {
+      "term": "web development",
+      "scheme": "http://www.itunes.com/",
+      "label": null
+    },
+    { "term": "developer", "scheme": "http://www.itunes.com/", "label": null },
+    { "term": "ide", "scheme": "http://www.itunes.com/", "label": null },
+    { "term": "podcast", "scheme": "http://www.itunes.com/", "label": null },
+    {
+      "term": "software developer",
+      "scheme": "http://www.itunes.com/",
+      "label": null
+    },
+    { "term": "training", "scheme": "http://www.itunes.com/", "label": null },
+    { "term": "course", "scheme": "http://www.itunes.com/", "label": null },
+    { "term": "online", "scheme": "http://www.itunes.com/", "label": null },
+    {
+      "term": "online course",
+      "scheme": "http://www.itunes.com/",
+      "label": null
+    },
+    {
+      "term": "data science",
+      "scheme": "http://www.itunes.com/",
+      "label": null
+    },
+    { "term": "nosql", "scheme": "http://www.itunes.com/", "label": null },
+    { "term": "mongodb", "scheme": "http://www.itunes.com/", "label": null },
+    {
+      "term": "cloud computing",
+      "scheme": "http://www.itunes.com/",
+      "label": null
+    }
+  ],
+  "published": "Mon, 20 Feb 2023 00:00:00 -0800",
+  "published_parsed": [2023, 2, 20, 8, 0, 0, 0, 51, 0],
+  "authors": [{ "name": "Michael Kennedy (@mkennedy)" }],
+  "author": "Michael Kennedy (@mkennedy)",
+  "author_detail": { "name": "Michael Kennedy (@mkennedy)" },
+  "itunes_title": "Clean Code in Python",
+  "itunes_episode": "404",
+  "itunes_explicit": null,
+  "subtitle": "",
+  "subtitle_detail": {
+    "type": "text/plain",
+    "language": null,
+    "base": "https://talkpython.fm/episodes/rss",
+    "value": ""
+  },
+  "summary": "Clean code is one of those aspects of your programming career that's easy to put on the back burner (sometimes by management more than yourself). But it's important in the short term for writing more debuggable and readable code. And important in the long run for avoiding having your program take on the dreaded \"legacy code\" moniker. We're fortunate to have Bob Belderbos back on the show. He's been thinking and writing about clean code and Python a lot lately and we'll dive into a bunch of tips you can use right away to make your code cleaner.",
+  "summary_detail": {
+    "type": "text/plain",
+    "language": null,
+    "base": "https://talkpython.fm/episodes/rss",
+    "value": "Clean code is one of those aspects of your programming career that's easy to put on the back burner (sometimes by management more than yourself). But it's important in the short term for writing more debuggable and readable code. And important in the long run for avoiding having your program take on the dreaded \"legacy code\" moniker. We're fortunate to have Bob Belderbos back on the show. He's been thinking and writing about clean code and Python a lot lately and we'll dive into a bunch of tips you can use right away to make your code cleaner."
+  },
+  "itunes_duration": "01:04:42",
+  "content": [
+    {
+      "type": "text/html",
+      "language": null,
+      "base": "https://talkpython.fm/episodes/rss",
+      "value": "Clean code is one of those aspects of your programming career that's easy to put on the back burner (sometimes by management more than yourself). But it's important in the short term for writing more debuggable and readable code. And important in the long run for avoiding having your program take on the dreaded \"legacy code\" moniker. We're fortunate to have Bob Belderbos back on the show. He's been thinking and writing about clean code and Python a lot lately and we'll dive into a bunch of tips you can use right away to make your code cleaner.\n<br /><br />\n<br />\n<strong>Links from the show</strong><br />\n<br />\n<div><b>Bob on Mastodon</b>: <a href=\"https://fosstodon.org/@bbelderbos\" rel=\"noopener\" target=\"_blank\">@bbelderbos@fosstodon.org</a><br />\n<b>PyBites</b>: <a href=\"https://pybit.es\" rel=\"noopener\" target=\"_blank\">pybit.es</a><br />\n<b>Tips for clean code in Python article</b>: <a href=\"https://pybit.es/articles/tips-for-clean-code-in-python/\" rel=\"noopener\" target=\"_blank\">pybit.es</a><br />\n<b>Refactoring book</b>: <a href=\"https://pybitesbooks.com/books/2H1_DwAAQBAJ\" rel=\"noopener\" target=\"_blank\">pybitesbooks.com</a><br />\n<b>Final type</b>: <a href=\"https://docs.python.org/release/3.11.0/library/typing.html#typing.Final\" rel=\"noopener\" target=\"_blank\">docs.python.org</a><br />\n<b>Sentinels pattern</b>: <a href=\"https://python-patterns.guide/python/sentinel-object/\" rel=\"noopener\" target=\"_blank\">python-patterns.guide</a><br />\n<b>Black formater</b>: <a href=\"https://pypi.org/project/black/\" rel=\"noopener\" target=\"_blank\">pypi.org</a><br />\n<b>Guarding clauses</b>: <a href=\"https://medium.com/lemon-code/guard-clauses-3bc0cd96a2d3\" rel=\"noopener\" target=\"_blank\">medium.com</a><br />\n<b>ChatGPT</b>: <a href=\"https://chat.openai.com/chat\" rel=\"noopener\" target=\"_blank\">chat.openai.com</a><br />\n<b>Git Precommit</b>: <a href=\"https://pre-commit.com\" rel=\"noopener\" target=\"_blank\">pre-commit.com</a><br />\n<b>#100DaysOfCode in Python course</b>: <a href=\"https://training.talkpython.fm/courses/explore_100days_in_python/100-days-of-code-in-python\" rel=\"noopener\" target=\"_blank\">training.talkpython.fm</a><br />\n<b>#100DaysOfWeb in Python course</b>: <a href=\"https://training.talkpython.fm/courses/explore_100days_web/100-days-of-web-in-python\" rel=\"noopener\" target=\"_blank\">training.talkpython.fm</a><br />\n<b>Watch this episode on YouTube</b>: <a href=\"https://www.youtube.com/watch?v=cBq5tE0FMIU\" rel=\"noopener\" target=\"_blank\">youtube.com</a><br />\n<b>Episode transcripts</b>: <a href=\"https://talkpython.fm/episodes/transcript/404/clean-code-in-python\" rel=\"noopener\" target=\"_blank\">talkpython.fm</a><br />\n<br />\n<b>--- Stay in touch with us ---</b><br />\n<b>Subscribe to us on YouTube</b>: <a href=\"https://talkpython.fm/youtube\" rel=\"noopener\" target=\"_blank\">youtube.com</a><br />\n<b>Follow Talk Python on Mastodon</b>: <a href=\"https://fosstodon.org/web/@talkpython\" rel=\"noopener\" target=\"_blank\"><i class=\"fa-brands fa-mastodon\"></i>talkpython</a><br />\n<b>Follow Michael on Mastodon</b>: <a href=\"https://fosstodon.org/web/@mkennedy\" rel=\"noopener\" target=\"_blank\"><i class=\"fa-brands fa-mastodon\"></i>mkennedy</a><br /></div><br />\n<strong>Sponsors</strong><br />\n<a href=\"https://talkpython.fm/taipy\">Taipy</a><br />\n<a href=\"https://talkpython.fm/brilliant\">Brilliant 2023</a><br />\n<a href=\"https://talkpython.fm/training\">Talk Python Training</a>"
+    }
+  ]
+}
