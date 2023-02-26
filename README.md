@@ -8,6 +8,10 @@ Leverage GCP Services and Open Source tools to convert Audo to text and then ext
 
 ![Basic Dataflow](./artifacts/designs/podcast_topic_extract_simple_data_flow.svg)
 
+### RSS notes
+
+- [RSS Schema](https://en.wikipedia.org/wiki/RSS_enclosure)
+
 ### Podcast Search
 
 - [podsearch](https://pypi.org/project/podsearch/)
@@ -30,6 +34,15 @@ https://en.wikipedia.org/wiki/RSS_enclosure
 length is size in bytes
 
 ### MP3 Audio to Text
+
+- [GCP Speech-to-Text](https://cloud.google.com/speech-to-text)
+- [GCP Speech-to-Text Docs](https://cloud.google.com/speech-to-text/docs)
+- [GCP Python Client](https://cloud.google.com/python/docs/reference/speech/latest)
+- [GCP Transcribe](https://cloud.google.com/speech-to-text/docs/transcribe-client-libraries)
+- [HuggingFace Inference API Overview](https://huggingface.co/docs/api-inference/index)
+- [HuggingFace Inference API Audio Example](https://huggingface.co/docs/api-inference/detailed_parameters#automatic-speech-recognition-task)
+- [HuggingFace Speech2Text2](https://huggingface.co/docs/transformers/model_doc/speech_to_text_2)
+- [HuggingFace Model Card](https://huggingface.co/facebook/wav2vec2-large-960h-lv60-self)
 
 ## Model Development
 

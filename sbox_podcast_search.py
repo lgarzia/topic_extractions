@@ -2,7 +2,7 @@
 import podsearch
 
 # %%
-podcasts = podsearch.search("python", country="us", limit=10)
+podcasts = podsearch.search("Google Cloud Reader", country="us", limit=10)
 
 # %%
 from podsearch import http
