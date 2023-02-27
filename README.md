@@ -54,7 +54,18 @@ length is size in bytes
   $10 worth; ~60 minutes per $1
   Hugging Face - Rate Limits, unclear what. Pro plan is ~$10 a month
 
-## Model Development
+### Text Models
 
-- Evaluate Transfer Learning
-- Evaluate GCP UI
+Objective - take transcripts and parse out entity and key topics;
+Evaluate transfer learning in phase II - get RSS Tags
+
+Approaches
+**Token Classification**
+
+- [RoBerta](https://huggingface.co/docs/transformers/model_doc/roberta)
+- [KeyBERT pypi](https://pypi.org/project/keybert/)
+- [Transformer Tutorial - pipelines](https://huggingface.co/course/chapter2/2?fw=pt)
+  **Keyword Extraction**
+  Topic Modeling, TFIDF, Expand Rank, Position Rank - leverage several text documents. Focus on a single text
+  [article 1](https://www.analyticssteps.com/blogs/top-5-keyword-extraction-algorithms-nlp)
+  _Text Rank_, _KeyBERT_,
