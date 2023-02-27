@@ -2,3 +2,5 @@
 internal_notes.txt
 *.mp3
 artifacts/tokens/hugging_face_api_token.txt
+ffmpeg-master-latest-win64-gpl-shared
+*.wav

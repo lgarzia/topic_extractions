@@ -43,6 +43,16 @@ length is size in bytes
 - [HuggingFace Inference API Audio Example](https://huggingface.co/docs/api-inference/detailed_parameters#automatic-speech-recognition-task)
 - [HuggingFace Speech2Text2](https://huggingface.co/docs/transformers/model_doc/speech_to_text_2)
 - [HuggingFace Model Card](https://huggingface.co/facebook/wav2vec2-large-960h-lv60-self)
+- [Open AI Whisper](https://openai.com/blog/whisper/)
+- [Assembly AI](https://www.assemblyai.com/pricing)
+- [FFMEG](https://ffmpeg.org/download.html)
+- [Whisper Python](https://pypi.org/project/whisper.ai/)
+- [Python FFMPEG](https://github.com/kkroening/ffmpeg-python)
+  Cost Considerations
+  Assemble AI - $0.00025 per second - .015/ minute
+  Google Cost $0.016 / minute
+  $10 worth; ~60 minutes per $1
+  Hugging Face - Rate Limits, unclear what. Pro plan is ~$10 a month
 
 ## Model Development
 
