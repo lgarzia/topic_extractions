@@ -4,3 +4,6 @@ podcast-downloader
 getpodcast
 mutagen
 google-cloud-speech
+transformers
+pydub
+ffmpeg-python
