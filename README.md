@@ -63,9 +63,28 @@ Approaches
 **Token Classification**
 
 - [RoBerta](https://huggingface.co/docs/transformers/model_doc/roberta)
-- [KeyBERT pypi](https://pypi.org/project/keybert/)
+- **[KeyBERT pypi](https://pypi.org/project/keybert/)**
 - [Transformer Tutorial - pipelines](https://huggingface.co/course/chapter2/2?fw=pt)
-  **Keyword Extraction**
+- **Keyword Extraction**
   Topic Modeling, TFIDF, Expand Rank, Position Rank - leverage several text documents. Focus on a single text
   [article 1](https://www.analyticssteps.com/blogs/top-5-keyword-extraction-algorithms-nlp)
-  _Text Rank_, _KeyBERT_,
+  [article 2](https://towardsdatascience.com/keyword-extraction-with-bert-724efca412ea)
+  [flair NLP](https://github.com/flairNLP/flair/blob/master/resources/docs/TUTORIAL_1_BASICS.md)
+  **[pke](https://github.com/boudinfl/pke)**
+  [spacy](https://spacy.io/usage/models)
+  [gensim](https://radimrehurek.com/gensim/)
+  [sentencepiece](https://github.com/google/sentencepiece)
+  [sbert](https://www.sbert.net/)
+
+### App Engine - Flask Entry Point
+
+Object is to create a Flask front end using App Engine.
+
+- Search for podcast <- Cloud Function
+- Show RSS feed <- Cloud Function
+- Kick off asynchronous download - return id <- Cloud Run
+- Get Keyword Results <- (FastAPI FireStore)
+- Download Transcripts <- (FastAPI FireStore)
+
+[Google Docs](https://cloud.google.com/appengine/docs/standard/python3/runtime)
+[Flask Docs](https://flask.palletsprojects.com/en/2.2.x/)
