@@ -88,3 +88,4 @@ Object is to create a Flask front end using App Engine.
 
 [Google Docs](https://cloud.google.com/appengine/docs/standard/python3/runtime)
 [Flask Docs](https://flask.palletsprojects.com/en/2.2.x/)
+[App YAML](https://cloud.google.com/appengine/docs/standard/reference/app-yaml?tab=python)

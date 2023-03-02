@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RSS Web Service</title>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <h1>Search for Podcasts</h1>
+    <h2>Last 10 Podcasts</h2>
+    {% for time in times %}
+    <p>{{ time }}</p>
+    {% endfor %}
+  </body>
+</html>
