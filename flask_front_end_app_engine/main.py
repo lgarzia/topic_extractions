@@ -1,29 +1,43 @@
 import datetime
 
-from flask import Flask, render_template
+from flask import Flask, redirect, render_template, request, url_for
+from formsical import MyForm
 from markupsafe import escape
 
+from flask_bootstrap import Bootstrap5  # isort: skip
+
 app = Flask(__name__)
+bootstrap = Bootstrap5(app)
 
 
-@app.route('/')
-def root():
+@app.route('/', methods=['GET', 'POST'])
+def index():
     error = {}
-    dummy_times = [datetime.datetime(2018, 1, 1, 10, 0, 0),
-                   datetime.datetime(2018, 1, 2, 10, 30, 0),
-                   datetime.datetime(2018, 1, 3, 11, 0, 0),
-                   ]
+    dummy_podcasts = ["podcast1","podcast2","podcast3"]
+    print(request.method, request.host_url)
+    print(request.form)
+    app.logger.debug('test logger')
+    return render_template('index.html', podcasts=dummy_podcasts)
 
-    return render_template('index.html', times=dummy_times)
-
-@app.route('/search')
+@app.route('/rss_search', methods=['GET', 'POST'])
 def rss_search():
-    return f"{escape('in search forms')}"
+    form = MyForm(meta={'csrf': False})
+    if form.validate_on_submit():
+        print(request.form)
+        return redirect('/')
+    return render_template('rss_search.html', form=form)
 
 @app.route('/search/<string:search_pod>')
 def get_rss_search(search_pod):
     return f"{escape(search_pod)}"
 
+@app.route('/download', methods=['GET', 'POST'])
+def get_rss_mp3(search_pod):
+    return f"{escape(search_pod)}"
+
+@app.get('/results')
+def get_results():
+    return f"Here's the results"
 
 if __name__ == '__main__':
     # This is used when running locally only. When deploying to Google App

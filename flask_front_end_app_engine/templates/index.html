@@ -1,19 +1,11 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Keyword Extractions of Podcasts</title>
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
-    <link
-      type="text/css"
-      rel="stylesheet"
-      href="{{ url_for('static', filename='style.css') }}"
-    />
-  </head>
-  <body>
+{% extends "base.html" %}
+{% block title %}Home of Podcast Keyword Extractions{% endblock %}
+{% block head %}{{ super() }}{% endblock %}
+
+{% block content %}
     <h1>Search for Podcasts</h1>
     <h2>Last 10 Podcasts</h2>
-    {% for time in times %}
-    <p>{{ time }}</p>
+    {% for podcast in podcasts %}
+    <p>{{ podcast }}</p>
     {% endfor %}
-  </body>
-</html>
+{% endblock %}
