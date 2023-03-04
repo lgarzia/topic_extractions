@@ -102,3 +102,16 @@ If need to be dynamic
 [Flask Forms](https://flask-wtf.readthedocs.io/en/1.0.x/)
 [Bootstrap Flask](https://bootstrap-flask.readthedocs.io/en/stable/basic/)
 [Bootstrap5](https://getbootstrap.com/docs/5.1/getting-started/introduction/)
+[Bootstrap Flas Render](https://bootstrap-flask.readthedocs.io/en/stable/macros/#render_form)
+
+### Cloud Function - FireStore
+Objective is creating an HTTP service that accepts search phrases - stores search term and search results in datastore with user key. App Engine -> Cloud Function -> Api -> Datastore -> App Engine gets key -> Retrieve Results
+Cloud function should require authentication
+
+[GCP Cloud Function Basic Deploys](https://cloud.google.com/functions/docs/create-deploy-gcloud)
+[GCP Write Cloud Function](https://cloud.google.com/functions/docs/writing)
+[Flask Request](https://tedboy.github.io/flask/generated/generated/flask.Request.html)
+[HTTP triggers](https://cloud.google.com/functions/docs/calling/http)
+[Flask Response](https://flask.palletsprojects.com/en/2.1.x/quickstart/#about-responses)
+In summary - effectively a Flask API that accepts all REST types
+[Local Testing](https://cloud.google.com/functions/docs/running/function-frameworks#functions-local-ff-install-python)

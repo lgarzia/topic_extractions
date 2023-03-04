@@ -10,3 +10,6 @@ flask_front_end_app_engine/notes.txt
 
 flask_front_end_app_engine/__pycache__
 flask_api_rss_feed/notes.txt
+
+podcast_search_cloud_function/venv_cf_podcast_search
+podcast_search_cloud_function/notes.txt
