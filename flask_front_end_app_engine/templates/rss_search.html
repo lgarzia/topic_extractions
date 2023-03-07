@@ -6,6 +6,10 @@
 {% block content %}
 
 
-{{ render_form(form) }}
+    {{ render_form(form) }}
+
+    {% for podcast in podcasts %}
+        <p>{{ podcast }}</p>
+    {% endfor %}
 
 {% endblock %}

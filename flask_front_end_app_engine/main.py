@@ -1,5 +1,7 @@
 import datetime
+import os
 
+import requests
 from flask import Flask, redirect, render_template, request, url_for
 from formsical import MyForm
 from markupsafe import escape
@@ -9,7 +11,25 @@ from flask_bootstrap import Bootstrap5  # isort: skip
 app = Flask(__name__)
 bootstrap = Bootstrap5(app)
 
-
+# https://stackoverflow.com/questions/63634151/how-can-i-call-a-google-cloud-function-from-google-app-engine
+def get_access_token_headers():
+    if os.getenv('GAE_ENV', '').startswith('standard'):
+  # Production in the standard environment
+        token_response = requests.get('http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/identity?audience=' +
+        'https://us-central1-podact-topic-extractor.cloudfunctions.net/podcast-search-g1', 
+        headers={'Metadata-Flavor': 'Google'})
+        headers = {'Authorization': f"Bearer {token_response.content.decode('utf-8')}"}
+        return headers
+    else:
+        import google.auth
+        import google.auth.transport.requests
+        creds, project = google.auth.default(scopes=['https://us-central1-podact-topic-extractor.cloudfunctions.net/podcast-search-g1'])
+        auth_req = google.auth.transport.requests.Request()
+        creds.refresh(auth_req)
+        headers = {'Authorization': f'bearer {creds.id_token}'}
+        return headers
+  # Local execution.
+    
 @app.route('/', methods=['GET', 'POST'])
 def index():
     error = {}
@@ -23,8 +43,14 @@ def index():
 def rss_search():
     form = MyForm(meta={'csrf': False})
     if form.validate_on_submit():
-        print(request.form)
-        return redirect('/')
+        print(f"in form validation - {request.form}")
+        # Add logic here to take keyword
+        data={'search_term':'python engineering'}
+        url = f"https://us-central1-podact-topic-extractor.cloudfunctions.net/podcast-search-g1"
+        headers = get_access_token_headers()
+        r = requests.post(url, json=data, headers=headers)
+        print(r.json())
+        return render_template('rss_search.html', form=form, podcasts=['one' ,'twp'])
     return render_template('rss_search.html', form=form)
 
 @app.route('/search/<string:search_pod>')
