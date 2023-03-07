@@ -115,3 +115,4 @@ Cloud function should require authentication
 [Flask Response](https://flask.palletsprojects.com/en/2.1.x/quickstart/#about-responses)
 In summary - effectively a Flask API that accepts all REST types
 [Local Testing](https://cloud.google.com/functions/docs/running/function-frameworks#functions-local-ff-install-python)
+[Real Python Requests](https://realpython.com/python-requests/)

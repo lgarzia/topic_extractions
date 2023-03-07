@@ -1,2 +1,5 @@
 notes.txt
 /venv_cf_podcast_search
+/tests
+/.pytest_cache
+__pycache__

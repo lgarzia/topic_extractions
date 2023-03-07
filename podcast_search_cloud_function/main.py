@@ -7,21 +7,34 @@ Usage Example:
 
 """
 import functions_framework
+from flask import jsonify
+from search import itune_podcast_search
 
 # from localpackage import hello_local_package
 
 
 # Register an HTTP function with the Functions Framework
 # https://tedboy.github.io/flask/generated/generated/flask.Request.html
+#https://flask.palletsprojects.com/en/2.1.x/quickstart/#about-responses
 @functions_framework.http
 def podcast_search(request):
   """ """
-  print(f"this is request.data - {request.data}")
-  print(f"this is request.args - {request.args}")
-  print(f"this is request.args.keys() - {request.args.keys()}")
-  print(f"this is request.args.get('q') - {request.args.get('q')}")
-  print(f"request.query_string {request.query_string}")
-  if request.is_json:
-    print(f"this is request.json - {request.json}")
+  search_term = None
+  # part one - collect search_term
+  if request.method == 'GET':
+    search_term = request.args.get('search_term')
+  elif request.method == 'POST':
+    if request.is_json:
+      search_term = request.json.get('search_term')
+    elif request.content_type == 'application/x-www-form-urlencoded':
+        search_term = request.form.get('search_term')
+    else:
+        search_term = request.data.get('search_term')
+  else:
+    return jsonify({'error_message':'only support GET/POST'}), 400
 
-  return 'OK'
+  if search_term:
+        response = itune_podcast_search(search_term) 
+        return response.json(), response.status_code
+  else:
+     return jsonify({'error_message':'please provide search_term'}), 400
