@@ -6,7 +6,7 @@ Leverage GCP Services and Open Source tools to convert Audo to text and then ext
 
 ## Dataflow Schema - Basic
 
-![Basic Dataflow](./artifacts/designs/podcast_topic_extract_simple_data_flow.svg)
+![Basic Dataflow](./artifacts/designs/podcast_topic_extract - overview.svg)
 
 ### RSS notes
 
@@ -104,7 +104,7 @@ If need to be dynamic
 [Bootstrap5](https://getbootstrap.com/docs/5.1/getting-started/introduction/)
 [Bootstrap Flas Render](https://bootstrap-flask.readthedocs.io/en/stable/macros/#render_form)
 
-### Cloud Function - FireStore
+### Cloud Function
 Objective is creating an HTTP service that accepts search phrases - stores search term and search results in datastore with user key. App Engine -> Cloud Function -> Api -> Datastore -> App Engine gets key -> Retrieve Results
 Cloud function should require authentication
 
@@ -116,3 +116,28 @@ Cloud function should require authentication
 In summary - effectively a Flask API that accepts all REST types
 [Local Testing](https://cloud.google.com/functions/docs/running/function-frameworks#functions-local-ff-install-python)
 [Real Python Requests](https://realpython.com/python-requests/)
+
+### Firestore
+Objective is using Firestore with application. 
+
+[GCP Docs](https://firebase.google.com/docs/firestore)
+[Data Model](https://firebase.google.com/docs/firestore/data-model)
+[Python Admin SDK](https://firebase.google.com/docs/reference/admin/python/)
+[Python Firestore Client](https://cloud.google.com/python/docs/reference/firestore/latest/index.html)
+
+hierarchical -> collection -> subcollection design
+
+* users (future state)
+  * devices (session/cookie based)
+    * searches
+    * downloads
+    * transcripts
+    * keywords
+
+Thought process -> each activity could be done independenly or in a sequential manner. Keys will roughly be 'concept'+'timestamp (ms)'
+
+[Index Exemption](https://stackoverflow.com/questions/69644815/firestore-how-to-exempt-a-field-from-being-indexed-via-java-code)
+
+* Add index exemptions manually it appears for 
+  * Large String Fields
+  * Large Array or map fields 
