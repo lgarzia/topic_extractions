@@ -124,7 +124,7 @@ Objective is using Firestore with application.
 [Data Model](https://firebase.google.com/docs/firestore/data-model)
 [Python Admin SDK](https://firebase.google.com/docs/reference/admin/python/)
 [Python Firestore Client](https://cloud.google.com/python/docs/reference/firestore/latest/index.html)
-
+[Add Data](https://cloud.google.com/firestore/docs/manage-data/add-data#python)
 hierarchical -> collection -> subcollection design
 
 * users (future state)
@@ -141,3 +141,4 @@ Thought process -> each activity could be done independenly or in a sequential m
 * Add index exemptions manually it appears for 
   * Large String Fields
   * Large Array or map fields 
+
