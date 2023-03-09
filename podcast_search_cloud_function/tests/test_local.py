@@ -58,3 +58,11 @@ def test_search_api():
     r = requests.post(url, json=data)
     print(r.json())
     assert r.status_code == 200
+
+# python -m pytest tests\test_local.py::test_search_datastore_save_api -s
+def test_search_datastore_save_api():
+    data={'search_term':'python', 'save':True}
+    url = "http://localhost:8080/"
+    r = requests.post(url, json=data)
+    print(r.json())
+    assert r.status_code == 200

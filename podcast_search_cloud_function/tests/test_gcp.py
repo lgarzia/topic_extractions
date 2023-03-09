@@ -22,3 +22,12 @@ def test_search_api():
     r = requests.post(url, json=data, headers=headers)
     print(r.json())
     assert r.status_code == 200
+
+# python -m pytest tests\test_gcp.py::test_search_datastore_save_api -s
+def test_search_datastore_save_api():
+    headers = {'Authorization': f'bearer {creds.id_token}'}
+    data={'search_term':'luke', 'save':True}
+    url = "https://us-central1-podact-topic-extractor.cloudfunctions.net/podcast-search-g1"
+    r = requests.post(url, json=data, headers=headers)
+    print(r.json())
+    assert r.status_code == 200

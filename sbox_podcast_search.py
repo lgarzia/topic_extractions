@@ -94,3 +94,62 @@ for i in s:
 # %%
 get_search_doc.to_dict()
 # %%
+# create function to process data
+# note --> this returns just dictionary; leveraging request need to pull out json
+response = http.get(url=SEARCH_URL, params=params)
+
+# %%
+podcast_results = response['results'][1]
+
+# %%
+user_podcast_ref = []
+podcast_collection = "podcasts"
+podcast_collection_ref = db.collection(podcast_collection)
+for podcast in response['results']:
+    podcast_document_name = str(podcast['collectionId'])
+    podcast_data = podcast
+    podcast_ref = podcast_collection_ref.document(podcast_document_name)
+    podcast_ref.set(podcast_data)
+    user_podcast_ref.append(podcast_ref)
+    print(podcast_document_name)
+# %%
+from datetime import datetime
+
+print()
+# %%
+search_term = "python"
+search_date = datetime.today().strftime('%Y%m%d')
+search_document_name = f"srch_trm_{str.lower(search_term)}_dte_{search_date}"
+search_result_data = {'search_term': f"{search_term}", 
+                      'search_date': f"{search_date}", 
+                      'search_result_count': f"{response['resultCount']}", 
+                      'search_result_podcasts': user_podcast_ref}
+# %%
+search_ref = db.collection(search_collection).document(search_document_name)
+# %%
+search_ref.set(search_result_data)
+# %%
+# search_ref = db.collection(search_collection).document("src_trm_python_dte_datetime.today().strftime('%Y%m%d')").delete()
+# search_ref = db.collection(search_collection).document("src_trm_python_dte_20230309").delete()
+# %%
+from dataclasses import dataclass
+from typing import List
+
+
+@dataclass
+class Podcast:
+    artistName: str
+    collectionId: str
+    collectionName: str
+    collectionViewUrl: str
+    feedUrl: str
+    genres: List[str]
+    primaryGenreName: str
+    releaseDate: datetime
+
+# %%
+p = Podcast(**{k:v for k,v in podcast_data.items() if k in Podcast.__match_args__})
+# %%
+p.to_dict()
+#c = Config(**{k:v for k,v in os.environ.items() if k in field_names})
+# %%

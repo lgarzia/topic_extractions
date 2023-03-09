@@ -142,3 +142,6 @@ Thought process -> each activity could be done independenly or in a sequential m
   * Large String Fields
   * Large Array or map fields 
 
+[Storage Size](https://cloud.google.com/firestore/docs/storage-size)
+* Seems in native mode, requires manually estimating
+* Free Tier is upto 1 GB

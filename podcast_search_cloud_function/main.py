@@ -34,7 +34,7 @@ def podcast_search(request):
     return jsonify({'error_message':'only support GET/POST'}), 400
 
   if search_term:
-        response = itune_podcast_search(search_term) 
+        response = itune_podcast_search(search_term, save=request.json.get('save')) 
         return response.json(), response.status_code
   else:
      return jsonify({'error_message':'please provide search_term'}), 400
