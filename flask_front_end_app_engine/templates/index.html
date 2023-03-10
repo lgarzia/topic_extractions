@@ -1,11 +1,8 @@
 {% extends "base.html" %}
+{% set active_page = "index" %}
 {% block title %}Home of Podcast Keyword Extractions{% endblock %}
 {% block head %}{{ super() }}{% endblock %}
 
 {% block content %}
-    <h1>Search for Podcasts</h1>
-    <h2>Last 10 Podcasts</h2>
-    {% for podcast in podcasts %}
-    <p>{{ podcast }}</p>
-    {% endfor %}
+    <h1>Luke Garzia's Podcast Key Concept Extractions</h1>
 {% endblock %}

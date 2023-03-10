@@ -4,7 +4,7 @@ import os
 import requests
 from data_model import rehydrate_search
 from flask import Flask, redirect, render_template, request, url_for
-from formsical import MyForm
+from formsical import PodcastSearchForm, RSSDownloadForm
 from google.cloud import firestore
 from markupsafe import escape
 
@@ -41,9 +41,10 @@ def index():
     app.logger.debug('test logger')
     return render_template('index.html', podcasts=dummy_podcasts)
 
+
 @app.route('/rss_search', methods=['GET', 'POST'])
 def rss_search():
-    form = MyForm(meta={'csrf': False})
+    form = PodcastSearchForm(meta={'csrf': False})
     if form.validate_on_submit():
         # call data model 
         print(f"in form validation - {request.form}")
@@ -60,13 +61,16 @@ def rss_search():
         return render_template('rss_search.html', form=form, podcasts=podcasts)
     return render_template('rss_search.html', form=form)
 
-@app.route('/search/<string:search_pod>')
-def get_rss_search(search_pod):
-    return f"{escape(search_pod)}"
 
-@app.route('/rss_download/<string:podcast_id>', methods=['GET', 'POST'])
-def rss_download(podcast_id):
-    return render_template('rss_download.html', podcast_id=podcast_id)
+@app.route('/rss_download', methods=['GET', 'POST'])
+@app.route('/rss_download/<string:podcast_id>')
+def rss_download(podcast_id=None):
+    form = RSSDownloadForm(meta={'csrf': False})
+    if podcast_id:
+        return render_template('rss_download.html', form=form, podcast_id=podcast_id)
+    else:
+        return render_template('rss_download.html', form=form)
+
 
 @app.get('/results')
 def get_results():
