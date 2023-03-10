@@ -2,8 +2,10 @@ import datetime
 import os
 
 import requests
+from data_model import rehydrate_search
 from flask import Flask, redirect, render_template, request, url_for
 from formsical import MyForm
+from google.cloud import firestore
 from markupsafe import escape
 
 from flask_bootstrap import Bootstrap5  # isort: skip
@@ -43,23 +45,28 @@ def index():
 def rss_search():
     form = MyForm(meta={'csrf': False})
     if form.validate_on_submit():
+        # call data model 
         print(f"in form validation - {request.form}")
         # Add logic here to take keyword
-        data={'search_term':'python engineering'}
-        url = f"https://us-central1-podact-topic-extractor.cloudfunctions.net/podcast-search-g1"
-        headers = get_access_token_headers()
-        r = requests.post(url, json=data, headers=headers)
-        print(r.json())
-        return render_template('rss_search.html', form=form, podcasts=['one' ,'twp'])
+        search_res = rehydrate_search("python")
+        if search_res:
+            print(f"returning from firestore - {search_res}")
+            podcasts = search_res['search_result_podcasts']
+        #data={'search_term':'python engineering'}
+        #url = f"https://us-central1-podact-topic-extractor.cloudfunctions.net/podcast-search-g1"
+        #headers = get_access_token_headers()
+        #r = requests.post(url, json=data, headers=headers)
+        #print(r.json())
+        return render_template('rss_search.html', form=form, podcasts=podcasts)
     return render_template('rss_search.html', form=form)
 
 @app.route('/search/<string:search_pod>')
 def get_rss_search(search_pod):
     return f"{escape(search_pod)}"
 
-@app.route('/download', methods=['GET', 'POST'])
-def get_rss_mp3(search_pod):
-    return f"{escape(search_pod)}"
+@app.route('/rss_download/<string:podcast_id>', methods=['GET', 'POST'])
+def rss_download(podcast_id):
+    return render_template('rss_download.html', podcast_id=podcast_id)
 
 @app.get('/results')
 def get_results():

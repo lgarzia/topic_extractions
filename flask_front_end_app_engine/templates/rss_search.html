@@ -1,15 +1,41 @@
 {% extends "base.html" %}
 {% from 'bootstrap5/form.html' import render_form %} 
 {% from 'bootstrap5/form.html' import render_field %}
+{% from 'bootstrap5/table.html' import render_table %}
 {% block title %}Search for RSS{% endblock %}
 {% block head %}{{ super() }}{% endblock %}
 {% block content %}
 
 
     {{ render_form(form) }}
-
-    {% for podcast in podcasts %}
-        <p>{{ podcast }}</p>
-    {% endfor %}
-
+    {% if podcasts %}
+    <table class="table table-striped table-light table-hover table-bordered table-responsive">
+        <thead class="table-light">
+            <tr>
+                <th scope="col">Artist Name</th>
+                <th scope="col">Collection ID</th>
+                <th scope="col">Collection Name</th>
+                <th scope="col">Collection View URL</th>
+                <th scope="col">Feed URL</th>
+                <th scope="col">Genres</th>
+                <th scope="col">Primary Genre</th>
+                <th scope="col">Latest Track Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for podcast in podcasts %}
+            <tr scope="row">
+                <td>{{ podcast['artistName'] }}</th>
+                <td>{{ podcast['collectionId'] }}</td>
+                <td>{{ podcast['collectionName'] }}</td>
+                <td>{{ podcast['collectionViewUrl'] }}</td>
+                <td><a href={{ url_for('rss_download', podcast_id=podcast['collectionId']) }} data-bs-toggle="tooltip" data-bs-placement="bottom" title="{{ podcast['feedUrl'] }}">Download</a></td>
+                <td>{{ podcast['genres'] }}</td>
+                <td>{{ podcast['primaryGenreName'] }}</td>
+                <td>{{ podcast['releaseDate'] }}</td>
+            {% endfor %}
+            </tr>
+        </tbody>
+    {% endif %}
+    
 {% endblock %}
