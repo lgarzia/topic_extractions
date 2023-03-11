@@ -24,7 +24,6 @@ def save_search_results(search_term: str, json_results: Dict[str, Dict]):
     Args:
         json_results (Dict[str, Dict]): _description_
 
-    TODO: Only Save relevent items of podcasts
     """
     print('in save clause')
     project='podact-topic-extractor'
