@@ -13,3 +13,6 @@ flask_api_rss_feed/notes.txt
 
 podcast_search_cloud_function/venv_cf_podcast_search
 podcast_search_cloud_function/notes.txt
+
+podcast_rss_download_cloud_function/venv_cf_rss_download
+podcast_rss_download_cloud_function/notes.txt

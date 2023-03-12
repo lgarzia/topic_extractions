@@ -1,0 +1,5 @@
+notes.txt
+/venv_cf_rss_download
+/tests
+/.pytest_cache
+__pycache__
