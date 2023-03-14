@@ -16,3 +16,13 @@ podcast_search_cloud_function/notes.txt
 
 podcast_rss_download_cloud_function/venv_cf_rss_download
 podcast_rss_download_cloud_function/notes.txt
+
+podcast-mp3-download-cloud-run/.vscode
+*.mypy_cache
+*.vscode
+*.idea
+podcast_mp3_audio_to_text_cloud_run/img
+podcast_mp3_audio_to_text_cloud_run/.readmes
+podcast_mp3_audio_to_text_cloud_run/static
+
+podcast-mp3-download-cloud-run/notes.txt
