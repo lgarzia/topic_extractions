@@ -1,0 +1,10 @@
+# Big Idea is create topics here
+# Test Ideas in here
+# Expectation is Cloud Run and Cloud Function are publisher
+# Tranche of work --> kick off mp3 download
+
+cd C:\Users\lgarzia\Documents\GitHub\topic_extractions\podcast_rss_download_cloud_function
+.\venv_cf_rss_download\Scripts\activate
+cd C:\Users\lgarzia\Documents\GitHub\topic_extractions\podcast-mp3-download-cloud-run
+
+pip install google-cloud-pubsub
