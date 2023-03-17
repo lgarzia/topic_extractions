@@ -1,6 +1,6 @@
 syntax = "proto3";
-message ProtocolBuffer {
-    string collection_id; 
-    string episode_id;
-    string episode_url;
+message MP3DownloadRequest {
+    string collection_id = 1;  
+    string episode_id = 2;
+    optional string episode_url = 3; // support seach against firestore
 }
