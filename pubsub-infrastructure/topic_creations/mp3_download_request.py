@@ -32,6 +32,8 @@ try:
 except AlreadyExists:
     print(f"{schema_id} already exists.")
 # %%
+
+# %%
 publisher = pubsub_v1.PublisherClient()
 # %%
 # %%

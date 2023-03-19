@@ -27,10 +27,19 @@ def download_mp3():
         mp3url = request.args.get('mp3url')
 
     elif request.method == 'POST':
+        # pub/sub message should land here
         if request.is_json:
-            collectionid = request.json.get('collectionid')
-            episodeid = request.json.get('episodeid')
-            mp3url = request.json.get('mp3url')
+            # pub/sub check
+            if "message" in request.get_json():
+                pubsub_message = request.get_json()
+                print(f"pubsub message is {pubsub_message}")
+                collectionid = request.get_json()['message']['collectionid']
+                episodeid = request.get_json()['message']['episodeid']
+                mp3url = request.get_json()['message']['mp3url']
+            else:
+                collectionid = request.json.get('collectionid')
+                episodeid = request.json.get('episodeid')
+                mp3url = request.json.get('mp3url')
 
         elif request.content_type == 'application/x-www-form-urlencoded':
             collectionid = request.form.get('collectionid')
@@ -47,6 +56,7 @@ def download_mp3():
         response = {'collectionid': collectionid, 
                     'episodeid': episodeid, 
                     'mp3url': mp3url} 
+        print(response)
         return jsonify(response)
     else:
         return jsonify({'error_message':'please provide appropriate keys'}), 400
