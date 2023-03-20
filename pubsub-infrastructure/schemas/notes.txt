@@ -4,3 +4,10 @@ https://avro.apache.org/docs/1.11.1/specification/_print/
 
 proto3
 https://protobuf.dev/programming-guides/proto3/
+
+https://protobuf.dev/getting-started/pythontutorial/
+
+define; 
+run compiler over to create python class
+leverages reflector class for dynamic features
+
