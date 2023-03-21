@@ -11,3 +11,5 @@ define;
 run compiler over to create python class
 leverages reflector class for dynamic features
 
+protoc -I=$SRC_DIR --python_out=$DST_DIR $SRC_DIR/addressbook.proto
+protoc -I=. --python_out=. ./mp3_download_request.proto
