@@ -13,3 +13,11 @@ leverages reflector class for dynamic features
 
 protoc -I=$SRC_DIR --python_out=$DST_DIR $SRC_DIR/addressbook.proto
 protoc -I=. --python_out=. ./mp3_download_request.proto
+
+pubsub message is {'message': 
+{'data': 'ewogICAgJ2NvbGxlY3Rpb25faWQnOiAgJzEnLCAgCiAgICAnZXBpc29kZV9pZCc6ICcyJywKICAgICdlcGlzb2RlX3VybCc6ICczLCcKfQ==', 
+'messageId': '7200633164575432', 
+'message_id': '7200633164575432', 
+'publishTime': '2023-03-19T00:24:43.722Z', 
+'publish_time': '2023-03-19T00:24:43.722Z'}, 
+'subscription': 'projects/podact-topic-extractor/subscriptions/cloud-run-mp3-download'}

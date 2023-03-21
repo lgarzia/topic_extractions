@@ -3,7 +3,9 @@ A sample Hello World server.
 """
 import os
 
+import mp3_download_request_pb2
 from flask import Flask, jsonify, render_template, request
+from google.protobuf.json_format import Parse
 
 # pylint: disable=C0103
 app = Flask(__name__)
@@ -33,9 +35,12 @@ def download_mp3():
             if "message" in request.get_json():
                 pubsub_message = request.get_json()
                 print(f"pubsub message is {pubsub_message}")
-                collectionid = request.get_json()['message']['collectionid']
-                episodeid = request.get_json()['message']['episodeid']
-                mp3url = request.get_json()['message']['mp3url']
+                message_data = request.get_json()['message']['data']
+                m = mp3_download_request_pb2.MP3DownloadRequest()
+                mdata = Parse(message_data, m)
+                collectionid = mdata.collection_id
+                episodeid = mdata.episode_id
+                mp3url = mdata.episode_url
             else:
                 collectionid = request.json.get('collectionid')
                 episodeid = request.json.get('episodeid')

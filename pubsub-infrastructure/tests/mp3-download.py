@@ -51,7 +51,7 @@ sys.path.append(r"C:\Users\lgarzia\Documents\GitHub\topic_extractions\pubsub-inf
 import mp3_download_request_pb2
 from google.api_core.exceptions import NotFound
 from google.cloud.pubsub import PublisherClient
-from google.protobuf.json_format import MessageToJson
+from google.protobuf.json_format import MessageToJson, Parse
 from google.pubsub_v1.types import Encoding
 
 # https://cloud.google.com/pubsub/docs/publisher#using-schema
@@ -79,14 +79,18 @@ try:
         print(f"Preparing a binary-encoded message:\n{data}")
     elif encoding == Encoding.JSON:
         json_object = MessageToJson(mp3)
+        print(f"json object-{str(json_object)}")
         data = str(json_object).encode("utf-8")
+        print(data)
         print(f"Preparing a JSON-encoded message:\n{data}")
+        bdict = Parse(data, mp3_download_request_pb2.MP3DownloadRequest())
+        print(bdict)
     else:
         print(f"No encoding specified in {topic_path}. Abort.")
         exit(0)
 
-    future = publisher_client.publish(topic_path, data)
-    print(f"Published message ID: {future.result()}")
+#    future = publisher_client.publish(topic_path, data)
+#    print(f"Published message ID: {future.result()}")
 
 except NotFound:
     print(f"{topic_id} not found.")
