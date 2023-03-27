@@ -71,7 +71,7 @@ try:
     mp3 = mp3_download_request_pb2.MP3DownloadRequest()
     mp3.collection_id = '4656556'  
     mp3.episode_id = '47557'
-    mp3.episode_url = 'http-I-will-download.ulr'
+    mp3.episode_url = 'http2-I-will-download.ulr'
 
     # Encode the data according to the message serialization type.
     if encoding == Encoding.BINARY:
@@ -83,15 +83,23 @@ try:
         data = str(json_object).encode("utf-8")
         print(data)
         print(f"Preparing a JSON-encoded message:\n{data}")
-        bdict = Parse(data, mp3_download_request_pb2.MP3DownloadRequest())
-        print(bdict)
     else:
         print(f"No encoding specified in {topic_path}. Abort.")
         exit(0)
 
-#    future = publisher_client.publish(topic_path, data)
-#    print(f"Published message ID: {future.result()}")
+    future = publisher_client.publish(topic_path, data)
+    print(f"Published message ID: {future.result()}")
 
 except NotFound:
     print(f"{topic_id} not found.")
+# %%
+s = 'ewogICAgJ2NvbGxlY3Rpb25faWQnOiAgJzEnLCAgCiAgICAnZXBpc29kZV9pZCc6ICcyJywKICAgICdlcGlzb2RlX3VybCc6ICczLCcKfQ=='
+# %%
+import base64
+
+data = base64.b64decode(s).decode("utf-8").strip()
+print(data)
+import json
+
+bdict = Parse(json.dumps(data), mp3_download_request_pb2.MP3DownloadRequest())
 # %%
