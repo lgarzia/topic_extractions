@@ -5,6 +5,9 @@ https://cloud.google.com/pubsub/docs/building-pubsub-messaging-system
 https://cloud.google.com/run/docs/tutorials/pubsub
 https://cloud.google.com/run/docs/triggering/pubsub-push
 
+*App Engine* Documentation
+https://cloud.google.com/appengine/docs/flexible/writing-and-responding-to-pub-sub-messages?tab=python
+
 ### Certification Notes
 https://cloud.google.com/pubsub/docs/choosing-pubsub-or-lite
 Pub/Sub Lite is only recommended for applications where achieving extremely low cost justifies some additional operational work.
@@ -122,3 +125,68 @@ https://cloud.google.com/pubsub/docs/push#properties_of_a_push_subscription
 * User-managed service account (required)
 * Audience
 * Google-managed service account (required)
+
+https://cloud.google.com/python/docs/reference/pubsub/latest
+
+https://cloud.google.com/pubsub/docs/push#receive_push
+When Pub/Sub delivers a message to a push endpoint, Pub/Sub sends the message in the body of a POST request. 
+The body of the request is a JSON object and the message data is in the message.data field. 
+The message data is **base64-encoded**.
+
+The following example is the body of a POST request to a push endpoint:
+102 - The 102 Processing status code means that the server has accepted the full request but has not yet completed it and no response is available as of yet
+200
+201
+202
+204
+
+https://jwt.io/introduction
+JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. This information can be verified and trusted because it is digitally signed. JWTs can be signed using a secret (with the HMAC algorithm) or a public/private key pair using RSA or ECDSA.
+
+**Authorization**: This is the most common scenario for using JWT. Once the user is logged in, each subsequent request will include the JWT, allowing the user to access routes, services, and resources that are permitted with that token. Single Sign On is a feature that widely uses JWT nowadays, because of its small overhead and its ability to be easily used across different domains.
+
+**Information Exchange**: JSON Web Tokens are a good way of securely transmitting information between parties. Because JWTs can be signed—for example, using public/private key pairs—you can be sure the senders are who they say they are. Additionally, as the signature is calculated using the header and the payload, you can also verify that the content hasn't been tampered with.
+
+In its compact form, JSON Web Tokens consist of three parts separated by dots (.), which are:
+
+* Header
+* Payload
+* Signature
+Therefore, a JWT typically looks like the following.
+
+xxxxx.yyyyy.zzzzz
+
+---
+If subscribers use a firewall, they can't receive push requests. To receive push requests, you must turn off the firewall and verify the JWT.
+https://openid.net/specs/draft-jones-json-web-token-07.html
+https://developers.google.com/identity/openid-connect/openid-connect
+
+Validating tokens sent by Pub/Sub to the push endpoint involves:
+
+Checking the token integrity by using signature validation.
+Ensuring that the email and audience claims in the token match the values set in the push subscription configuration.
+The following example illustrates how to authenticate a push request to an App Engine application not secured with Identity-Aware Proxy. If your App Engine application is secured with IAP, the HTTP request header that contains the IAP JWT is x-goog-iap-jwt-assertion and must be validated accordingly.
+
+Cloud Run, App Engine, and Cloud Functions authenticate HTTP calls from Pub/Sub by verifying Pub/Sub-generated tokens. The only configuration that you require is to grant the necessary IAM roles to the caller account.
+
+https://cloud.google.com/pubsub/docs/push#cloud-run:
+
+To temporarily stop Pub/Sub from sending requests to the push endpoint, change the subscription to pull. The changeover can take several minutes to take effect.
+
+If a push subscriber sends too many negative acknowledgments, Pub/Sub might start delivering messages using a push backoff. When Pub/Sub uses a push backoff, it stops delivering messages for a predetermined amount of time. This time span can range between 100 milliseconds to 60 seconds. After the time has elapsed, Pub/Sub starts delivering messages again.
+
+Push backoff uses an exponential backoff algorithm to determine the delay Pub/Sub that uses between sending messages. This amount of time is calculated based on the number of negative acknowledgments that push subscribers send.
+
+Pub/Sub adjusts the number of concurrent push requests using a slow-start algorithm. The maximum allowed number of concurrent push requests is the push window. The push window increases on any successful delivery and decreases on any failure. The system starts with a small single-digit window size.
+
+https://cloud.google.com/pubsub/docs/bigquery
+
+* Use topic schema. 
+* Write metadata. 
+* Drop unknown fields
+
+If you do not select the Write metadata option, then the destination BigQuery table only requires the data field unless use_topic_schema is true
+
+Without Drop unknown fields set, messages with extra fields are not written to BigQuery and remain in the subscription backlog.
+
+https://cloud.google.com/pubsub/docs/create-subscription
