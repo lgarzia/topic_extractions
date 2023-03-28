@@ -190,3 +190,65 @@ If you do not select the Write metadata option, then the destination BigQuery ta
 Without Drop unknown fields set, messages with extra fields are not written to BigQuery and remain in the subscription backlog.
 
 https://cloud.google.com/pubsub/docs/create-subscription
+
+Subscribers use a subscription to read messages from a topic. When you create a subscription, you attach it to a topic. You can attach many subscriptions to a single topic.
+
+Subscription Prperties
+https://cloud.google.com/pubsub/docs/create-subscription#subscription_properties
+
+* Message retention duration
+* Retain acknowledged messages
+* Expiration period
+* Acknowledgment deadline
+* Subscription filter - You cannot update a filter for a subscription
+* Message ordering
+* Dead letter topic. When a message can't be delivered after a set number of delivery attempts or a subscriber can't acknowledge the message, the message is republished to a dead-letter topic.
+* Retry policy
+* Exactly-once delivery -> default is at-least-once
+
+https://cloud.google.com/pubsub/docs/create-subscription#assign_bigquery_service_account
+https://cloud.google.com/pubsub/docs/create-subscription#detach_a_subscription_from_a_topic
+When you create a subscription, you attach the subscription to a topic, and subscribers can receive messages from the subscription. To stop subscribers from receiving messages, you can detach subscriptions from the topic.
+
+**Configure Delivery Options**
+https://cloud.google.com/pubsub/docs/flow-control
+Flow control thus handles traffic spikes without driving up costs or until the subscriber is scaled up.
+https://cloud.google.com/pubsub/docs/flow-control#flow_control_configuration
+
+If the limit for setMaxOutstandingElementCount() or setMaxOutstandingRequestBytes() is crossed, the subscriber client does not pull more messages.
+
+https://cloud.google.com/pubsub/docs/handling-failures
+This page explains how to handle such processing failures by using a subscription retry policy or by forwarding undelivered messages to a dead-letter topic (also known as a dead-letter queue).
+Note that these features are not supported by Dataflow. Refer to the Unsupported Pub/Sub features section of the Dataflow documentation for further information.
+
+https://cloud.google.com/pubsub/docs/handling-failures#dead_letter_topic
+A dead-letter topic is a subscription property, not a topic property. This means that you set a dead-letter topic when you create a subscription, not when you create a topic.
+
+* Maximum number of delivery attempts
+* Project with the dead-letter topic
+https://cloud.google.com/pubsub/docs/handling-failures#configure_a_dead_letter_topic
+1. Create the dead-letter topic. This topic is separate from the source topic.
+2. Set the dead-letter topic on the subscription for the source topic.
+3. To avoid losing messages from the dead-letter topic, attach at least one other subscription to the dead-letter topic. The secondary subscription receives messages from the dead-letter topic.
+4. Grant the publisher and subscriber roles to the Pub/Sub service account. For more information, see Grant forwarding permissions.
+
+https://cloud.google.com/pubsub/docs/replay-overview
+
+The Seek feature extends subscriber functionality by allowing you to alter the acknowledgement state of messages in bulk. For example, you can replay previously acknowledged messages or purge messages in bulk. In addition, you can copy the state of one subscription to another by using seek in combination with a Snapshot.
+
+To seek to a time in the past and replay previously-acknowledged messages, you must first configure message retention on the topic or configure the subscription to retain acknowledged messages.
+https://cloud.google.com/pubsub/docs/replay-overview#seek_to_a_time
+
+https://cloud.google.com/pubsub/docs/replay-overview#seek_to_a_snapshot
+The snapshot feature allows you to capture the message acknowledgment state of a subscription. Once a snapshot is created, it retains:
+All messages that were unacknowledged in the source subscription at the time of the snapshot's creation.
+Any messages published to the topic thereafter.
+
+https://cloud.google.com/pubsub/docs/lease-management#lease_management_configuration
+
+https://cloud.google.com/pubsub/docs/ordering#receiving_messages_in_order
+
+https://cloud.google.com/pubsub/docs/subscription-message-filter
+The Pub/Sub service automatically acknowledges the messages that don't match the filter. You can filter messages by their attributes, but not by the data in the message.
+
+
