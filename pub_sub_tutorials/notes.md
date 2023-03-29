@@ -251,4 +251,14 @@ https://cloud.google.com/pubsub/docs/ordering#receiving_messages_in_order
 https://cloud.google.com/pubsub/docs/subscription-message-filter
 The Pub/Sub service automatically acknowledges the messages that don't match the filter. You can filter messages by their attributes, but not by the data in the message.
 
+https://cloud.google.com/pubsub/docs/monitoring
+Key Point: Learn how to view or create a monitoring dashboard and how to view a metric in Cloud Monitoring. Also, learn about the various metrics you can use to monitor your topics and subscriptions.
 
+https://cloud.google.com/monitoring/api/metrics_gcp#gcp-pubsub
+https://cloud.google.com/pubsub/docs/monitoring#common_backlog_issues
+
+In Pub/Sub, the delivery latency is the amount of time elapsed after a message is published and then delivered to a subscriber. If your message backlog is increasing, you can use the Delivery latency health score
+https://cloud.google.com/pubsub/docs/monitoring#delivery_latency_health
+https://cloud.google.com/pubsub/docs/monitoring#monitoring_exp
+https://cloud.google.com/pubsub/docs/monitoring#monitoring_message_throughput
+https://cloud.google.com/pubsub/docs/monitoring#keeping_publishers_healthy
