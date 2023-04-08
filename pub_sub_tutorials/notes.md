@@ -262,3 +262,17 @@ https://cloud.google.com/pubsub/docs/monitoring#delivery_latency_health
 https://cloud.google.com/pubsub/docs/monitoring#monitoring_exp
 https://cloud.google.com/pubsub/docs/monitoring#monitoring_message_throughput
 https://cloud.google.com/pubsub/docs/monitoring#keeping_publishers_healthy
+
+gcloud beta emulators pubsub start --project=podact-topic-extractor
+gcloud beta emulators pubsub env-init > set_vars.cmd && set_vars.cmd
+
+https://cloud.google.com/run/docs/tutorials/pubsub
+envelope = request.get_json()
+pubsub_message = envelope["message"]
+name = base64.b64decode(pubsub_message["data"]).decode("utf-8").strip()
+
+Success codes, such as HTTP 200 or 204, acknowledge complete processing of the Pub/Sub message. Error codes, such as HTTP 400 or 500, indicate the message will be retried
+
+# Dataflow 
+https://cloud.google.com/dataflow/docs/quickstarts/create-pipeline-python
+https://beam.apache.org/
