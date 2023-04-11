@@ -58,3 +58,36 @@ https://cloud.google.com/dataflow/docs/guides/pipeline-workflows#job-submission-
 
 https://cloud.google.com/dataflow/docs/concepts/exactly-once
 https://cloud.google.com/dataflow/docs/concepts/streaming-with-cloud-pubsub
+
+
+https://cloud.google.com/dataflow/docs/guides/deploying-a-pipeline
+https://beam.apache.org/documentation/runners/dataflow/
+
+https://cloud.google.com/dataflow/docs/guides/deploying-a-pipeline#set-pipeline-options
+
+https://cloud.google.com/dataflow/docs/guides/deploying-a-pipeline#autotuning-features
+* Horizontal Autoscaling
+* Vertical Autoscaling
+* Dynamic work rebalancing
+
+https://cloud.google.com/dataflow/docs/guides/setting-pipeline-options
+Pipeline execution is separate from your Apache Beam program's execution. The Apache Beam program that you've written constructs a pipeline for deferred execution. This means that the program generates a series of steps that any supported Apache Beam runner can execute
+
+https://beam.apache.org/documentation/programming-guide/#configuring-pipeline-options
+https://cloud.google.com/dataflow/docs/guides/templates/creating-templates#runtimeparams
+
+https://cloud.google.com/dataflow/docs/guides/setting-pipeline-options#using_pipeline_options_with_sdks
+There are two methods for specifying pipeline options:
+
+Set them programmatically by supplying a list of pipeline options.
+https://cloud.google.com/dataflow/docs/guides/setting-pipeline-options#setting_pipeline_options_programmatically_2
+Set them directly on the command line when you run your pipeline code.
+https://cloud.google.com/dataflow/docs/quickstarts/create-pipeline-python#run-the-pipeline-on-the-dataflow-service
+
+https://cloud.google.com/dataflow/docs/guides/setting-pipeline-options#launching_on
+
+https://cloud.google.com/dataflow/docs/guides/setting-pipeline-options#controlling_execution_modes
+When an Apache Beam program runs a pipeline on a service such as Dataflow, the program can either run the pipeline asynchronously, or can block until pipeline completion. You can change this behavior by using the following guidance.
+use the wait_until_finish() method of the PipelineResult object, returned from the run() method of the runner.
+
+https://cloud.google.com/dataflow/docs/guides/setting-pipeline-options#LocalExecution
