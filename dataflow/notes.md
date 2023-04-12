@@ -91,3 +91,32 @@ When an Apache Beam program runs a pipeline on a service such as Dataflow, the p
 use the wait_until_finish() method of the PipelineResult object, returned from the run() method of the runner.
 
 https://cloud.google.com/dataflow/docs/guides/setting-pipeline-options#LocalExecution
+
+
+https://cloud.google.com/dataflow/docs/reference/pipeline-options#basic_options
+https://cloud.google.com/dataflow/docs/reference/service-options
+Service options are a type of pipeline option that allows you to specify additional job modes and configurations for a Dataflow job. Set these options by setting the dataflowServiceOptions pipeline option.
+
+Dataflow templates allow you to package a Dataflow pipeline for deployment. Anyone with the correct permissions can then use the template to deploy the packaged pipeline.
+
+https://cloud.google.com/dataflow/docs/guides/templates/provided-templates
+
+Dataflow supports two types of template: Flex templates, which are newer, and classic templates. If you are creating a new Dataflow template, we recommend creating it as a Flex template.
+
+https://cloud.google.com/dataflow/docs/concepts/dataflow-templates#template-workflow
+
+* For Flex templates, the developers package the pipeline into a Docker image, push the image to Container Registry or Artifact Registry, and upload a template specification file to Cloud Storage.
+ * The template specification contains a pointer to the Docker image
+ * execution graph is dynamically built based on runtime parameters provided by the user. 
+* For classic templates, developers run the pipeline, create a template file, and stage the template to Cloud Storage.
+ * A classic template contains the JSON serialization of a Dataflow job graph. 
+ * The code for the pipeline must wrap any runtime parameters in the ValueProvider interface.
+    * Unlike classic templates, Flex templates don't require the ValueProvider interface for input parameters. Not all Dataflow sources and sinks support ValueProvider.
+    * While classic templates have a static job graph, Flex templates can dynamically construct the job graph. For example, the template might select a different I/O connector based on input parameters.
+    * A Flex template can perform preprocessing on a virtual machine (VM) during pipeline construction. For example, it might validate input parameter values
+
+https://cloud.google.com/dataflow/docs/guides/templates/ssl-certificates#extrafilestostage
+
+With some templates, you can stage files on Dataflow worker VMs by using the extraFilesToStage template parameter.
+
+
