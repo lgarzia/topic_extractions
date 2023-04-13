@@ -118,5 +118,27 @@ https://cloud.google.com/dataflow/docs/concepts/dataflow-templates#template-work
 https://cloud.google.com/dataflow/docs/guides/templates/ssl-certificates#extrafilestostage
 
 With some templates, you can stage files on Dataflow worker VMs by using the extraFilesToStage template parameter.
+saved in the /extra_files directory on each worker
 
+https://cloud.google.com/dataflow/docs/guides/templates/creating-templates
+Rather than writing the template, you use a command to generate the template from an existing pipeline.
 
+* In your pipeline code, use the ValueProvider interface for all pipeline options that you want to set or use at runtime. Use DoFn objects that accept runtime parameters.
+* Extend your template with additional metadata so that custom parameters are validated when the classic template is run. Examples of such metadata include the name of your custom classic template and optional parameters.
+* Check if the pipeline I/O connectors support ValueProvider objects, and make changes as required.
+* Create and stage the custom classic template.
+* Run the custom classic template.
+
+https://cloud.google.com/dataflow/docs/guides/templates/creating-templates#about-runtime-parameters-and-the-valueprovider-interface
+
+RuntimeValueProvider -  RuntimeValueProvider allows your pipeline to accept a value that is only available during pipeline execution. The value is not available during pipeline construction, so you can't use the value to change your pipeline's workflow graph.
+The Dataflow runner does not support ValueProvider options for Pub/Sub topics and subscription parameters. If you require Pub/Sub options in your runtime parameters, use Flex Templates.
+StaticValueProvider - StaticValueProvider allows you to provide a static value to your pipeline. The value is available during pipeline construction, so you can use the value to change your pipeline's workflow graph.
+NestedValueProvider - 
+
+https://cloud.google.com/dataflow/docs/guides/templates/creating-templates#use-metadata-in-your-pipeline-code
+You can extend your template with additional metadata so that custom parameters are validated when the template is run. If you want to create metadata for your template, follow these steps:
+
+https://cloud.google.com/dataflow/docs/guides/templates/creating-templates#create-and-stage-a-classic-template
+
+https://cloud.google.com/dataflow/docs/guides/templates/using-flex-templates
