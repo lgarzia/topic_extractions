@@ -142,3 +142,20 @@ You can extend your template with additional metadata so that custom parameters 
 https://cloud.google.com/dataflow/docs/guides/templates/creating-templates#create-and-stage-a-classic-template
 
 https://cloud.google.com/dataflow/docs/guides/templates/using-flex-templates
+
+https://cloud.google.com/dataflow/docs/guides/updating-a-pipeline
+When you update your job, the Dataflow service performs a compatibility check between your currently-running job and your potential replacement job. The compatibility check ensures that things like intermediate state information and buffered data can be transferred from your prior job to your replacement job.
+
+https://cloud.google.com/dataflow/docs/guides/stopping-a-pipeline
+You cannot delete a Dataflow job; you can only stop it.
+
+* Cancel a job. This method applies to both streaming pipelines and batch pipelines. Canceling a job stops the Dataflow service from processing any data, including buffered data. For more information, see Canceling a job.
+
+* Drain a job. This method applies only to streaming pipelines. Draining a job enables the Dataflow service to finish processing the buffered data while simultaneously ceasing the ingestion of new data. For more information, see Draining a job.
+
+* Force Cancel a job. This method applies to both streaming pipelines and batch pipelines. Force canceling a job immediately stops the Dataflow service from processing any data, including buffered data. Before force canceling, you must first attempt a regular cancel. Force canceling is only intended for jobs that have become stuck in the regular canceling process. For more information, see Force Canceling a job.
+
+https://cloud.google.com/dataflow/docs/request-quotas#jobs
+https://cloud.google.com/dataflow/docs/guides/using-snapshots
+
+https://cloud.google.com/dataflow/docs/guides/troubleshooting-your-pipeline
