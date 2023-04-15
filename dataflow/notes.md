@@ -141,7 +141,7 @@ You can extend your template with additional metadata so that custom parameters 
 
 https://cloud.google.com/dataflow/docs/guides/templates/creating-templates#create-and-stage-a-classic-template
 
-https://cloud.google.com/dataflow/docs/guides/templates/using-flex-templates
+https://cloud.google.com/dataflow/docs/guides/templates/using-flex-templatess
 
 https://cloud.google.com/dataflow/docs/guides/updating-a-pipeline
 When you update your job, the Dataflow service performs a compatibility check between your currently-running job and your potential replacement job. The compatibility check ensures that things like intermediate state information and buffered data can be transferred from your prior job to your replacement job.
