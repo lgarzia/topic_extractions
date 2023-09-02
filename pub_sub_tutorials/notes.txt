@@ -1,4 +1,0 @@
-cd C:\Users\lgarzia\Documents\GitHub\topic_extractions\podcast_rss_download_cloud_function
-.\venv_cf_rss_download\Scripts\activate
-cd C:\Users\lgarzia\Documents\GitHub\topic_extractions\pub_sub_tutorials
-

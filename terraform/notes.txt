@@ -1,5 +1,0 @@
-Objective - create project by hand first, then by terraform
-
-https://cloud.google.com/appengine/docs/standard/python3/building-app/creating-gcp-project
-create project 
-enable cloud build api
