@@ -1,12 +1,12 @@
 # Objective
 
-Leverage GCP Services and Open Source tools to convert Audo to text and then extract text into key topics. The big idea is effectively identifying key concepts discussed on Podcast.
+Leverage GCP Services and Open Source tools to convert audio to text and then extract text into key topics. The big idea is effectively identifying key concepts discussed on the Podcast.
 
-# High Level Design
+# High-Level Design
 
 ## Dataflow Schema - Basic
 
-![Basic Dataflow](./artifacts/designs/podcast_topic_extract - overview.svg)
+![Basic Dataflow](./artifacts/designs/podcast_topic_extract_overview.svg)
 
 ### RSS notes
 
